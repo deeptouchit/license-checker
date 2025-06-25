@@ -101,5 +101,5 @@ This package is open-sourced software licensed under the [MIT license](https://o
 
 ### Author:
 
-**Alzar Rahman Sabu**  
+**Salzar Rahman Sabu**  
 Email: [salzarrahman84@gmail.com](mailto:salzarrahman84@gmail.com)
