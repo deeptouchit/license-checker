@@ -26,29 +26,25 @@ class License
      * @param string $licenseKey
      * @param string $domain
      * @param string $phone
-     * @param string $product
-     * @param string $licenseType
      * @return array
      */
-    public function verify($licenseKey, $domain, $phone, $product, $licenseType)
+    public function verify($licenseKey, $domain, $phone)
     {
         try {
             $response = $this->client->post($this->apiUrl, [
                 'form_params' => [
-                    'license_key'  => $licenseKey,
-                    'domain'       => $domain,
-                    'phone'        => $phone,
-                    'product'      => $product,  
-                    'license_type' => $licenseType 
+                    'license_key' => $licenseKey,
+                    'domain' => $domain,
+                    'phone' => $phone,
                 ]
             ]);
 
-    
+            // JSON রেসপন্স পার্স করা
             $data = json_decode($response->getBody()->getContents(), true);
 
             return $data;
         } catch (\Exception $e) {
-
+            // যদি কোন ত্রুটি ঘটে তবে তা লগ করুন
             return [
                 'success' => false,
                 'message' => 'Error: ' . $e->getMessage()

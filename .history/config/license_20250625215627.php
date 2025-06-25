@@ -29,7 +29,7 @@ return [
     | The domain to be used for license verification.
     |
     */
-    'domain' => env('LICENSE_DOMAIN', request()->getHost()), 
+    'domain' => request()->getHost(),
 
     /*
     |--------------------------------------------------------------------------
@@ -40,24 +40,4 @@ return [
     |
     */
     'phone' => env('LICENSE_PHONE', 'your-default-phone-number'),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Product Name
-    |--------------------------------------------------------------------------
-    |
-    | The product name to be used for license verification.
-    |
-    */
-    'product' => env('LICENSE_PRODUCT', 'Tileventory'),
-
-    /*
-    |--------------------------------------------------------------------------
-    | License Type
-    |--------------------------------------------------------------------------
-    |
-    | The license type to be used for license verification.
-    |
-    */
-    'license_type' => env('LICENSE_LICENSE_TYPE', 'lifetime'),
 ];

@@ -1,5 +1,3 @@
-<?php
-
 namespace Deeptouchit\LicenseChecker;
 
 use GuzzleHttp\Client;
@@ -38,17 +36,17 @@ class License
                     'license_key'  => $licenseKey,
                     'domain'       => $domain,
                     'phone'        => $phone,
-                    'product'      => $product,  
-                    'license_type' => $licenseType 
+                    'product'      => $product,    // নতুন প্যারামিটার
+                    'license_type' => $licenseType // নতুন প্যারামিটার
                 ]
             ]);
 
-    
+            // JSON রেসপন্স পার্স করা
             $data = json_decode($response->getBody()->getContents(), true);
 
             return $data;
         } catch (\Exception $e) {
-
+            // যদি কোন ত্রুটি ঘটে তবে তা লগ করুন
             return [
                 'success' => false,
                 'message' => 'Error: ' . $e->getMessage()
