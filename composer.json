@@ -1,5 +1,5 @@
 {
-    "name": "deeptouchit/license-checker",
+    "name": "salzarrahman/license-checker",
     "description": "A simple license checker for Laravel applications.",
     "type": "library",
     "autoload": {
