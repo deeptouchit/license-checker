@@ -38,7 +38,7 @@ Example:
 
 ```php
 return [
-    'api_url' => env('LICENSE_API_URL', 'https://addmartbd.com/api/verify-license'),
+    'api_url' => env('LICENSE_API_URL', 'https://yourdomain.com/api/verify-license'),
     'license_key' => env('LICENSE_KEY', 'your-default-license-key'),
     'domain' => env('LICENSE_DOMAIN', 'your-default-domain'),
     'phone' => env('LICENSE_PHONE', 'your-default-phone-number'),
@@ -98,7 +98,7 @@ The `verify()` method returns an associative array with the following keys:
 This package is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ---
-
+  
 ### Author:
 
 **Salzar Rahman Sabu**  
