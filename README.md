@@ -48,7 +48,7 @@ return [
 Don't forget to add the environment variables to your `.env` file:
 
 ```env
-LICENSE_API_URL=https://addmartbd.com/api/verify-license
+LICENSE_API_URL=https://yourdomain.com/api/verify-license
 LICENSE_KEY=your-license-key
 LICENSE_DOMAIN=your-domain
 LICENSE_PHONE=your-phone-number
