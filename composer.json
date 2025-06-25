@@ -1,0 +1,30 @@
+{
+    "name": "deeptouchit/license-checker",
+    "description": "A simple license checker for Laravel applications.",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Deeptouchit\\LicenseChecker\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.4|^8.0",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Deeptouchit\\LicenseChecker\\LicenseServiceProvider"
+            ]
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Salzar Rahman Sabu",
+            "email": "salzarrahman84@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
