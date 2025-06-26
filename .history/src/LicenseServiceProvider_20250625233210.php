@@ -3,7 +3,6 @@
 namespace Deeptouchit\LicenseChecker;
 
 use Illuminate\Support\ServiceProvider;
-use GuzzleHttp\Client;
 
 class LicenseServiceProvider extends ServiceProvider
 {
@@ -16,14 +15,18 @@ class LicenseServiceProvider extends ServiceProvider
     {
         // লাইসেন্স ক্লাস রেজিস্টার করো
         $this->app->singleton(License::class, function ($app) {
-            return new License(new Client()); // Guzzle HTTP client ইনজেক্ট করা হচ্ছে
+            return new License(new \GuzzleHttp\Client());
         });
 
-        // কনফিগ ফাইল এবং Middleware ফাইল একসাথে পাবলিশ করার জন্য একই ট্যাগ ব্যবহার করা হচ্ছে
+        // লাইসেন্স কনফিগ ফাইল পাবলিশ করতে চাইলে সেটাও রেজিস্টার করতে হবে
         $this->publishes([
-            __DIR__.'/../config/license.php' => config_path('license.php'), // কনফিগ ফাইল পাবলিশ করা হচ্ছে
+            __DIR__.'/../config/license.php' => config_path('license.php'),
+        ]);
+
+        // Middleware ফাইল পাবলিশ করুন
+        $this->publishes([
             __DIR__.'/../middleware/LicenseCheck.php' => app_path('Http/Middleware/LicenseCheck.php'), // Middleware ফাইল পাবলিশ করা হচ্ছে
-        ], 'license'); // একই ট্যাগ 'license' দিয়ে পাবলিশ করা হচ্ছে
+        ], 'middleware');
     }
 
     /**
@@ -33,7 +36,7 @@ class LicenseServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // কনফিগ ফাইলটি অ্যাপ্লিকেশনে লোড করুন
+        // যদি আপনি কনফিগ ফাইল লোড করতে চান, সেটা এখানে করা হবে
         $this->mergeConfigFrom(
             __DIR__.'/../config/license.php', 'license'
         );
