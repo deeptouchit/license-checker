@@ -20,7 +20,7 @@ class LicenseServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../config/license.php' => config_path('license.php'),
-            __DIR__.'/Middleware/LicenseVerification.php' => app_path('Http/Middleware/LicenseVerification.php'),
+            __DIR__.'/Middleware/LicenseCheck.php' => app_path('Http/Middleware/LicenseCheck.php'),
         ], 'license');
     }
 
